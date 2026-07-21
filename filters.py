@@ -170,7 +170,8 @@ class HalfbandFIR():
         if N % 4 == 0:
             N += 2
         self.N = N
-        g = remez(N//2+1, [0, 2*pb_edge/sr, 0.5, 0.5], [1, 0], [1, 1], maxiter=250) # the "trick"
+        # g = remez(N//2+1, [0, 2*pb_edge/sr, 0.5, 0.5], [1, 0], [1, 1], maxiter=250) # the "trick"
+        g = remez(N // 2 + 1,[0, 2 * pb_edge / sr, 0.5, 0.5],[1, 0],weight=[1, 1],maxiter=250) # my change
         h = utils.upsample(g, 2)[:-1] / 2       # period filter (odd taps only)
         h[N // 2] = 0.5                         # set center tap
 
