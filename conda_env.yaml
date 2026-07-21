@@ -1,16 +1,19 @@
 name: resampling_neural_afx
+
 channels:
+  - conda-forge
   - defaults
+
 dependencies:
   - python=3.10
   - pip
+  - numpy<2
+  - numba
+  - llvmlite
+  - matplotlib>=3.9,<3.11
+  - pandas=2.2.2
+
   - pip:
       - flax==0.10.2
-      - matplotlib==3.9.0
-      - pandas==2.2.2
       - pip-chill==1.0.3
       - rocket-fft==0.2.5
-
-
-
-
